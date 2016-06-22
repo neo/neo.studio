@@ -10,12 +10,12 @@ var browserSync = require('browser-sync').create();
 gulp.task('build', ['css', 'html', 'images', 'javascript']);
 
 gulp.task('clean', function() {
-	return gulp.src('dist', {read: false})
+	return gulp.src(['dist', 'src/*.css', 'src/*.js'], {read: false})
 		.pipe($.clean());
 });
 
 gulp.task('javascript', ['scripts'], function() {
-	return gulp.src('src/bundle.js')
+	return gulp.src('src/*.js')
 		.pipe($.uglify())
 		.pipe(gulp.dest('dist'));
 });
