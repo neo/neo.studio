@@ -3,13 +3,21 @@
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 var autoprefixer = require('autoprefixer');
+var browserify = require('browserify');
+var source = require('vinyl-source-stream');
 var browserSync = require('browser-sync').create();
 
-gulp.task('build', ['css', 'html', 'images']);
+gulp.task('build', ['css', 'html', 'images', 'javascript']);
 
 gulp.task('clean', function() {
 	return gulp.src('dist', {read: false})
 		.pipe($.clean());
+});
+
+gulp.task('javascript', ['scripts'], function() {
+	return gulp.src('src/bundle.js')
+		.pipe($.uglify())
+		.pipe(gulp.dest('dist'));
 });
 
 gulp.task('css', ['styles'], function() {
@@ -33,17 +41,23 @@ gulp.task('images', function() {
 gulp.task('styles', function() {
 	return gulp.src('src/styles/*.scss')
 		.pipe($.sass().on('error', $.sass.logError))
-		.pipe($.sourcemaps.init())
 		.pipe($.postcss([autoprefixer()]))
-		.pipe($.sourcemaps.write('.'))
 		.pipe(gulp.dest('./src'))
 		.pipe(browserSync.stream());
 });
 
-gulp.task('default', ['styles'], function() {
+gulp.task('scripts', function() {
+	return browserify('src/scripts/script.js').bundle()
+		.pipe(source('script.js'))
+		.pipe(gulp.dest('./src'))
+		.pipe(browserSync.stream({once: true}));
+});
+
+gulp.task('default', ['styles', 'scripts'], function() {
 	browserSync.init({
 		server: './src'
 	});
+	gulp.watch('src/scripts/script.js', ['scripts'])
 	gulp.watch('src/styles/*.scss', ['styles']);
 	gulp.watch('src/*.html').on('change', browserSync.reload);
 });

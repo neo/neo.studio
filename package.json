@@ -1,12 +1,12 @@
 {
   "scripts": {
     "start": "gulp",
-    "postinstall": "subl .",
-    "b": "browserify src/scripts/script.js > src/bundle.js"
+    "postinstall": "subl ."
   },
   "devDependencies": {
     "autoprefixer": "^6.3.6",
     "browser-sync": "^2.12.12",
+    "browserify": "^13.0.1",
     "gulp": "^3.9.1",
     "gulp-clean": "^0.3.2",
     "gulp-cssmin": "^0.1.7",
@@ -15,7 +15,8 @@
     "gulp-load-plugins": "^1.2.4",
     "gulp-postcss": "^6.1.1",
     "gulp-sass": "^2.3.1",
-    "gulp-sourcemaps": "^1.6.0"
+    "gulp-uglify": "^1.5.3",
+    "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {
     "three": "^0.78.0"
