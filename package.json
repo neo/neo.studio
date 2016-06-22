@@ -2,7 +2,7 @@
   "scripts": {
     "start": "gulp",
     "postinstall": "subl .",
-    "b": "browserify src/script.js > src/bundle.js"
+    "b": "browserify src/scripts/script.js > src/bundle.js"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.6",
