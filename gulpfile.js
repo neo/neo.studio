@@ -7,7 +7,10 @@ var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 var browserSync = require('browser-sync').create();
 
-gulp.task('build', ['css', 'html', 'images', 'javascript']);
+gulp.task('build', ['css', 'html', 'images', 'javascript'], function() {
+	return gulp.src('src/assets/*')
+		.pipe(gulp.dest('dist/assets'));
+});
 
 gulp.task('clean', function() {
 	return gulp.src(['dist', 'src/*.css', 'src/*.js'], {read: false})
