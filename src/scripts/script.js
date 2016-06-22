@@ -1,6 +1,6 @@
 var THREE = require('three');
-require('./MTLLoader.js')(THREE);
-require('./OBJLoader.js')(THREE);
+require('./_MTLLoader.js')(THREE);
+require('./_OBJLoader.js')(THREE);
 
 var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
