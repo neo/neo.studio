@@ -1,1 +1,30 @@
 @import 'reset';
+
+body {
+	font-family: 'Source Code Pro', Courier;
+	background: #222;
+	color: #eee;
+}
+main {
+	background: rgba(255, 82, 82, 0.5);
+	width: 80vmin;
+	height: 80vmin;
+	margin: -40vmin auto;
+	position: relative;
+	top: 40vh;
+}
+canvas {
+	width: 100%;
+	height: 100%;
+}
+h1 {
+	text-align: center;
+	font-size: 2rem;
+	line-height: 3rem;
+	position: absolute;
+	width: 100%;
+	bottom: 10vh;
+}
+img {
+	height: 0.5em;
+}
