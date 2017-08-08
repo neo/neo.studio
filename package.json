@@ -1,7 +1,6 @@
 {
   "scripts": {
-    "start": "gulp",
-    "postinstall": "subl ."
+    "start": "gulp"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.6",
