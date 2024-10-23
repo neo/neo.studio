@@ -1,23 +1,17 @@
 {
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "start": "gulp"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "devDependencies": {
-    "autoprefixer": "^6.3.6",
-    "browser-sync": "^2.12.12",
-    "browserify": "^13.0.1",
-    "gulp": "^3.9.1",
-    "gulp-clean": "^0.3.2",
-    "gulp-cssmin": "^0.1.7",
-    "gulp-htmlmin": "^2.0.0",
-    "gulp-imagemin": "^3.0.1",
-    "gulp-load-plugins": "^1.2.4",
-    "gulp-postcss": "^6.1.1",
-    "gulp-sass": "^2.3.1",
-    "gulp-uglify": "^1.5.3",
-    "vinyl-source-stream": "^1.1.0"
+    "sass": "~1.77.8",
+    "vite": "^5.4.10"
   },
   "dependencies": {
-    "three": "^0.78.0"
+    "three": "^0.169.0"
   }
 }
